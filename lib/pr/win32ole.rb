@@ -337,7 +337,7 @@ class WIN32OLE
   #--
   # TODO: explain numeric server and host behavior.
   #
-  def initialize(server=nil, host=nil)
+  def initialize(server=nil, host=nil, riid=IID_IDispatch)
     WIN32OLE.ole_initialize()
 
     @pDispatch = nil
@@ -372,7 +372,7 @@ class WIN32OLE
       clsid,
       nil,
       CLSCTX_INPROC_SERVER | CLSCTX_LOCAL_SERVER,
-      IID_IDispatch,
+      riid,
       ptr
     )
 
